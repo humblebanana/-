@@ -5,8 +5,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* 确保所有元素都使用思源宋体 */
-    font-family: 'Noto Serif TC', serif !important;
+    /* 使用更标准的字体名称 */
+    font-family: KaiTi, '楷体', DFKai-SB, BiauKai, serif !important;
 }
 
 body {
@@ -164,8 +164,7 @@ body {
 /* 响应式设计 */
 @media (max-width: 768px) {
     body {
-        /* 确保移动端也使用思源宋体 */
-        font-family: 'Noto Serif TC', serif !important;
+        font-family: KaiTi, '楷体', DFKai-SB, BiauKai, serif !important;
     }
     
     .first-page .title {

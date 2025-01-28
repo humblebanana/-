@@ -43,48 +43,72 @@ document.querySelectorAll('.blessing-item').forEach(item => {
         void this.offsetWidth;
         this.classList.add('clicked');
         
-        // 创建多组爆竹效果
-        createFireworks(e.clientX, e.clientY);
+        // 获取点击位置（适配移动端）
+        const x = e.touches ? e.touches[0].clientX : e.clientX;
+        const y = e.touches ? e.touches[0].clientY : e.clientY;
+        
+        // 创建爆竹效果
+        createFireworks(x, y);
+    });
+
+    // 添加触摸事件支持
+    item.addEventListener('touchstart', function(e) {
+        e.preventDefault(); // 防止触发点击事件
+        const touch = e.touches[0];
+        createFireworks(touch.clientX, touch.clientY);
     });
 });
 
+// 修改爆竹效果函数，使其在移动端更明显
 function createFireworks(x, y) {
-    // 创建多波爆竹效果
-    for (let wave = 0; wave < 3; wave++) {
-        setTimeout(() => {
-            // 每波创建多个火花
-            for (let i = 0; i < 12; i++) {
-                const spark = document.createElement('div');
-                spark.className = 'firework-spark';
-                document.body.appendChild(spark);
-
-                // 随机角度和速度
-                const angle = (i * 30 + Math.random() * 20) * Math.PI / 180;
-                const velocity = 8 + Math.random() * 8;
-                const vx = Math.cos(angle) * velocity;
-                const vy = Math.sin(angle) * velocity;
-
-                spark.style.left = x + 'px';
-                spark.style.top = y + 'px';
-                
-                // 使用动画
-                spark.animate([
-                    {
-                        transform: 'translate(0, 0) scale(1)',
-                        opacity: 1
-                    },
-                    {
-                        transform: `translate(${vx * 15}px, ${vy * 15}px) scale(0)`,
-                        opacity: 0
-                    }
-                ], {
-                    duration: 1000 + Math.random() * 500,
-                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-                }).onfinish = () => spark.remove();
+    for (let i = 0; i < 12; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'firework-particle';
+        
+        // 增大粒子尺寸，使其在移动端更容易看到
+        particle.style.width = '8px';
+        particle.style.height = '8px';
+        
+        document.body.appendChild(particle);
+        
+        const angle = (i * 30) * Math.PI / 180;
+        const velocity = 15; // 增加速度
+        const vx = Math.cos(angle) * velocity;
+        const vy = Math.sin(angle) * velocity;
+        
+        // 设置初始位置
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        
+        // 使用动画
+        particle.animate([
+            {
+                transform: 'translate(0, 0) scale(1)',
+                opacity: 1
+            },
+            {
+                transform: `translate(${vx * 10}px, ${vy * 10}px) scale(0)`,
+                opacity: 0
             }
-        }, wave * 200); // 每波之间间隔200ms
+        ], {
+            duration: 1000,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        }).onfinish = () => particle.remove();
     }
 }
+
+// 添加爆竹粒子的样式
+const style = document.createElement('style');
+style.textContent = `
+    .firework-particle {
+        position: fixed;
+        background: #FFD700;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1000;
+    }
+`;
+document.head.appendChild(style);
 
 // 修改背景特效创建函数
 function createBackgroundEffects() {
