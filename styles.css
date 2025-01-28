@@ -5,43 +5,38 @@
     box-sizing: border-box;
 }
 
-/* 统一字体设置 */
-body {
-    /* 移动端优先的字体设置 */
-    font-family: "Kaiti SC", /* iOS */
-                "Kaiti TC", /* iOS 繁体 */
-                KaiTi, /* Windows */
-                "楷体-简", /* 简体变体 */
-                "楷体", 
-                DFKai-SB, /* Mac */
-                "华文楷体", /* 华文字体 */
-                serif !important; /* 后备字体 */
+/* 全局字体设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* 确保所有文字元素继承字体 */
-.title,
-.subtitle,
-.blessing-item,
+/* 基础字体设置 */
+body, 
+.title, 
+.subtitle, 
+.blessing-item, 
 .couplet,
 h1,
 p,
 span {
-    font-family: inherit !important;
+    font-family: 'Noto Serif SC', KaiTi, "楷体", serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* 移动端特别处理 */
 @media screen and (max-width: 768px) {
-    body {
-        /* 移动端特定的字体设置 */
-        font-family: "Kaiti SC",
-                    "Kaiti TC",
-                    "楷体-简",
-                    KaiTi,
-                    "楷体",
-                    DFKai-SB,
-                    "华文楷体",
-                    serif !important;
-        -webkit-text-size-adjust: 100%; /* 防止 iOS 自动调整字体大小 */
+    body, 
+    .title, 
+    .subtitle, 
+    .blessing-item, 
+    .couplet,
+    h1,
+    p,
+    span {
+        font-family: 'Noto Serif SC', KaiTi, "楷体", serif !important;
     }
 }
 
