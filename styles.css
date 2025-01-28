@@ -498,7 +498,7 @@ h1 {
     bottom: 0;
     right: 0;
     width: 1200px;  /* 根据需要调整宽度 */
-    height: 6%;  /* 根据需要调整高度 */
+    height: 7%;  /* 根据需要调整高度 */
     background-color: #FF0000;  /* 与背景相同的红色 */
     z-index: 9999;  /* 确保遮罩在最上层 */
 }
