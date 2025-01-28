@@ -5,6 +5,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* 确保所有元素都使用思源宋体 */
+    font-family: 'Noto Serif TC', serif !important;
 }
 
 body {
@@ -80,17 +82,18 @@ body {
 
 /* 点击时的动画类 */
 .blessing-item.clicked {
-    animation: blessingClick 0.5s ease-out;
+    animation: blessingPop 0.5s ease-out;
+    transform-origin: center;
 }
 
 /* 定义点击动画 */
-@keyframes blessingClick {
+@keyframes blessingPop {
     0% {
         transform: scale(1);
         box-shadow: 0 0 0 rgba(255, 215, 0, 0);
     }
     50% {
-        transform: scale(1.2);
+        transform: scale(1.1);
         box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
     }
     100% {
@@ -160,6 +163,11 @@ body {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+    body {
+        /* 确保移动端也使用思源宋体 */
+        font-family: 'Noto Serif TC', serif !important;
+    }
+    
     .first-page .title {
         font-size: 2.5em;
     }
@@ -437,7 +445,7 @@ h1 {
     right: 0;
     width: 1200px;  /* 根据需要调整宽度 */
     height: 6%;  /* 根据需要调整高度 */
-    background-color: #e62129;  /* 与背景相同的红色 */
+    background-color: #FF0000;  /* 与背景相同的红色 */
     z-index: 9999;  /* 确保遮罩在最上层 */
 }
 
@@ -449,15 +457,16 @@ h1 {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1; /* 调整层级 */
     overflow: hidden;
 }
 
 /* 星星特效 */
-.stars {
+.stars, .snowflakes {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
 .star {
@@ -466,28 +475,45 @@ h1 {
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    animation: twinkle 1s infinite;
+    animation: twinkle 2s infinite;
+    transition: all 0.5s ease;
 }
 
 /* 雪花特效 */
 .snowflake {
     position: absolute;
     color: #FFD700;
-    font-size: 1.5em;
-    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s ease;
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 1; }
+    0%, 100% { 
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
 
-@keyframes fall {
+@keyframes float {
     0% {
-        transform: translateY(-100%) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(10px, 10px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, 20px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-10px, 10px) rotate(270deg);
     }
     100% {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translate(0, 0) rotate(360deg);
     }
 }
 
@@ -533,4 +559,67 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* 隐藏滚动条但保持可滚动 */
+.container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    /* 隐藏滚动条 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* 隐藏 Webkit 浏览器的滚动条 */
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 爆竹效果样式 */
+.firework-spark {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 
+        0 0 6px #FFD700,
+        0 0 12px #FF0000;
+}
+
+/* 爆竹形状变化 */
+.firework-spark::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(45deg);
+    box-shadow: inherit;
+}
+
+/* 爆竹形状变化 */
+.firework-spark::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(45deg);
+    box-shadow: inherit;
+}
+
+/* 确保其他内容在特效之上 */
+#fullpage {
+    position: relative;
+    z-index: 2;
+}
+
+.couplets {
+    z-index: 3;
 } 

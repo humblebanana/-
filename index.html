@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蛇年賀新春</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notoserictc.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 在 body 开头添加背景特效容器 -->
+    <!-- 将背景特效容器移到 fullpage 之前 -->
     <div class="background-effects">
         <div class="stars"></div>
         <div class="snowflakes"></div>
@@ -55,14 +57,26 @@
         </div>
     </div>
 
+    <!-- 添加遮罩层 -->
+    <div class="copyright-mask"></div>
+
+    <!-- 确保 script 正确加载 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+    <script src="script.js"></script>
     <script>
+        // 初始化 fullPage
         new fullpage('#fullpage', {
             autoScrolling: true,
             scrollHorizontally: true,
             navigation: true,
             navigationPosition: 'right',
-            css3: true
+            css3: true,
+            credits: { enabled: false }
+        });
+
+        // 确保背景特效在页面加载完成后立即启动
+        document.addEventListener('DOMContentLoaded', function() {
+            createBackgroundEffects();
         });
     </script>
 </body>
