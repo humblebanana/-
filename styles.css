@@ -1,17 +1,33 @@
 /* 導入思源宋體（繁體版本） */
 @import url('https://fonts.googleapis.com/earlyaccess/notoserictc.css');
 
+/* 全局字体设置 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* 使用更标准的字体名称 */
-    font-family: KaiTi, '楷体', DFKai-SB, BiauKai, serif !important;
+}
+
+/* 重新设置字体，确保移动端兼容性 */
+body, 
+.title, 
+.subtitle, 
+.blessing-item, 
+.couplet {
+    /* 完整的字体回退序列 */
+    font-family: KaiTi, 
+                KaiTi_GB2312, /* Windows 中文系统 */
+                '楷体', 
+                '楷体_GB2312',  /* 兼容旧系统 */
+                DFKai-SB,  /* Mac/iOS 中文系统 */
+                '标楷体',  /* Linux 中文系统 */
+                serif !important;
+    -webkit-font-smoothing: antialiased;  /* 优化字体渲染 */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
     background: #FF0000;
-    font-family: "宋体", SimSun, serif;
     min-height: 100vh;
     overflow: hidden;
     color: #FFD700;
@@ -162,9 +178,20 @@ body {
 .blessing-item:nth-child(6) { animation-delay: 0.6s; }
 
 /* 响应式设计 */
-@media (max-width: 768px) {
-    body {
-        font-family: KaiTi, '楷体', DFKai-SB, BiauKai, serif !important;
+@media screen and (max-width: 768px) {
+    body, 
+    .title, 
+    .subtitle, 
+    .blessing-item, 
+    .couplet {
+        /* 确保移动端字体设置相同 */
+        font-family: KaiTi, 
+                    KaiTi_GB2312,
+                    '楷体', 
+                    '楷体_GB2312', 
+                    DFKai-SB, 
+                    '标楷体', 
+                    serif !important;
     }
     
     .first-page .title {
