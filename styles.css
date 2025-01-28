@@ -22,7 +22,7 @@ h1,
 p,
 span,
 .scroll-hint {
-    font-family: 'Noto Serif SC', serif !important;
+    font-family: KaiTi_GB2312, KaiTi, "楷体_GB2312", "楷体", serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -55,7 +55,7 @@ span,
     p,
     span,
     .scroll-hint {
-        font-family: 'Noto Serif SC', serif !important;
+        font-family: KaiTi_GB2312, KaiTi, "楷体_GB2312", "楷体", serif !important;
     }
 }
 
@@ -218,7 +218,7 @@ body {
     .blessing-item, 
     .couplet {
         /* 确保移动端字体设置相同 */
-        font-family: 'Noto Serif SC', serif !important;
+        font-family: KaiTi_GB2312, KaiTi, "楷体_GB2312", "楷体", serif !important;
     }
     
     .first-page .title {
