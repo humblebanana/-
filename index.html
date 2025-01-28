@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛇年賀新春</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notoserictc.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 在 body 开头添加背景特效容器 -->
+    <div class="background-effects">
+        <div class="stars"></div>
+        <div class="snowflakes"></div>
+    </div>
+
+    <!-- 对联 -->
+    <div class="couplets">
+        <div class="couplet left">金蛇舞動迎春到</div>
+        <div class="couplet right">瑞氣盤旋福運來</div>
+    </div>
+
+    <div id="fullpage">
+        <!-- 第一页 -->
+        <div class="section first-page">
+            <div class="content">
+                <img src="assets/cute-snake.png" alt="蛇年吉祥物" class="snake-image">
+                <div class="title-container">
+                    <h1 class="title">蛇年賀歲</h1>
+                    <p class="subtitle">桐宇祝您：</p>
+                </div>
+                <div class="scroll-hint">
+                    <span>往下滑動</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二页 -->
+        <div class="section second-page">
+            <div class="content">
+                <p class="click-hint">點擊祝福語放鞭炮 🧨</p>
+                <div class="blessing-list">
+                    <span class="blessing-item">蛇(時)來運轉 🌟</span>
+                    <span class="blessing-item">蛇(神)采飛揚 ✨</span>
+                    <span class="blessing-item">百蛇(事)可樂 🎉</span>
+                    <span class="blessing-item">喜蛇(事)臨門 🏮</span>
+                    <span class="blessing-item">好蛇(事)成雙 💕</span>
+                    <span class="blessing-item">蛇(十)拿九穩 🎯</span>
+                </div>
+            </div>
+            <div class="fireworks-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+    <script>
+        new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            navigationPosition: 'right',
+            css3: true
+        });
+    </script>
+</body>
+</html> 

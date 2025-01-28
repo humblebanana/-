@@ -1,0 +1,536 @@
+/* 導入思源宋體（繁體版本） */
+@import url('https://fonts.googleapis.com/earlyaccess/notoserictc.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FF0000;
+    font-family: "宋体", SimSun, serif;
+    min-height: 100vh;
+    overflow: hidden;
+    color: #FFD700;
+}
+
+.section {
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 第一页样式 */
+.first-page .snake-image {
+    width: 200px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    animation: snakeWiggle 3s ease-in-out infinite;
+}
+
+.first-page .title {
+    font-size: 3.5em;
+    margin: 20px 0;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.first-page .subtitle {
+    font-size: 1.8em;
+    color: #FFD700;
+}
+
+/* 第二页样式 */
+.blessing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.blessing-item {
+    font-size: 2em;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    user-select: none;
+}
+
+.blessing-item:active {
+    transform: scale(0.95);
+}
+
+/* 点击时的动画类 */
+.blessing-item.clicked {
+    animation: blessingClick 0.5s ease-out;
+}
+
+/* 定义点击动画 */
+@keyframes blessingClick {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+    }
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+/* 添加悬停效果 */
+.blessing-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* 对联样式 */
+.couplet {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFD700;
+    padding: 40px 20px;
+    writing-mode: vertical-lr;
+    font-size: 36px;
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(5px);
+    font-weight: 700;
+    letter-spacing: 8px;
+    line-height: 1.8;
+}
+
+.left {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 动画效果 */
+@keyframes snakeWiggle {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 为每个祝福语设置延迟动画 */
+.blessing-item:nth-child(1) { animation-delay: 0.1s; }
+.blessing-item:nth-child(2) { animation-delay: 0.2s; }
+.blessing-item:nth-child(3) { animation-delay: 0.3s; }
+.blessing-item:nth-child(4) { animation-delay: 0.4s; }
+.blessing-item:nth-child(5) { animation-delay: 0.5s; }
+.blessing-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .first-page .title {
+        font-size: 2.5em;
+    }
+    
+    .first-page .subtitle {
+        font-size: 1.5em;
+    }
+    
+    .blessing-list {
+        width: 70%;
+        padding: 0 40px;
+    }
+    
+    .blessing-item {
+        font-size: 1.5em;
+        padding: 15px 20px;
+    }
+
+    .couplet {
+        font-size: 24px;
+        padding: 20px 10px;
+    }
+
+    .scroll-hint {
+        bottom: 20px;
+    }
+
+    .scroll-hint span {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .blessing-list {
+        width: 80%;
+        padding: 0 30px;
+    }
+    
+    .blessing-item {
+        font-size: 1.3em;
+        padding: 12px 15px;
+    }
+}
+
+/* 蛇的动画 */
+.snake {
+    margin: 20px auto;
+}
+
+.snake-body {
+    animation: slither 3s infinite ease-in-out;
+    stroke: #FFD700;
+}
+
+@keyframes slither {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+}
+
+/* 祝福语样式 */
+.greeting {
+    margin-top: 40px;
+}
+
+h1 {
+    color: #FFD700;
+    font-size: 3.5em;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    animation: scaleUp 1s ease-out;
+    font-weight: 700;
+}
+
+.blessing {
+    font-size: 1.5em;
+    color: #FFD700;
+    margin: 20px 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.blessing-list span {
+    font-size: 1.4em;
+    color: #FFD700;
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 5px 0;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+/* 为每个祝福语设置不同的延迟 */
+.blessing-list span:nth-child(1) { animation-delay: 0.2s; }
+.blessing-list span:nth-child(2) { animation-delay: 0.4s; }
+.blessing-list span:nth-child(3) { animation-delay: 0.6s; }
+.blessing-list span:nth-child(4) { animation-delay: 0.8s; }
+.blessing-list span:nth-child(5) { animation-delay: 1.0s; }
+.blessing-list span:nth-child(6) { animation-delay: 1.2s; }
+
+/* 添加悬停效果 */
+.blessing-list span:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #FFD700;
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 装饰元素的样式 */
+.decoration {
+    position: absolute;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from { transform: translateY(-100vh); }
+    to { transform: translateY(100vh); }
+}
+
+/* 对联样式 */
+.couplets {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* 蛇的新样式 */
+.snake-tongue {
+    animation: flick 0.5s infinite;
+    fill: #FFE999;
+}
+
+.snake-scales {
+    animation: shimmer 2s infinite;
+    stroke: #FFE999;
+}
+
+@keyframes flick {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.2); }
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.snake-eye {
+    fill: #000;
+}
+
+/* 滑动提示样式 */
+.scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: fadeInOut 2s infinite;
+}
+
+.scroll-hint span {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #FFD700;
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 3px solid #FFD700;
+    border-bottom: 3px solid #FFD700;
+    transform: rotate(45deg);
+    margin: 0 auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translate(-5px, -5px); }
+    50% { transform: rotate(45deg) translate(0, 0); }
+}
+
+/* 点击提示文字样式 */
+.click-hint {
+    font-size: 1.2em;
+    color: #FFD700;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* 鞭炮动画样式 */
+.firework {
+    position: absolute;
+    pointer-events: none;
+    animation: explode 0.8s ease-out forwards;
+}
+
+.firework::before, .firework::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #FFD700;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* 星星特效样式 */
+.sparkle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* 星星形状 */
+.sparkle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(45deg);
+}
+
+/* 添加遮罩层覆盖版权信息 */
+.copyright-mask {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 1200px;  /* 根据需要调整宽度 */
+    height: 6%;  /* 根据需要调整高度 */
+    background-color: #e62129;  /* 与背景相同的红色 */
+    z-index: 9999;  /* 确保遮罩在最上层 */
+}
+
+/* 背景特效样式 */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* 星星特效 */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: #FFD700;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    animation: twinkle 1s infinite;
+}
+
+/* 雪花特效 */
+.snowflake {
+    position: absolute;
+    color: #FFD700;
+    font-size: 1.5em;
+    animation: fall linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* 添加标题动画样式 */
+.title-container {
+    text-align: center;
+}
+
+.title {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    animation: titlePopIn 1s ease-out forwards;
+}
+
+.subtitle {
+    font-size: 1.8em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: subtitleFadeIn 0.8s ease-out forwards;
+    animation-delay: 1s; /* 等标题动画结束后再显示 */
+}
+
+@keyframes titlePopIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes subtitleFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
