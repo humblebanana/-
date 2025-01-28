@@ -21,7 +21,7 @@ body,
 h1,
 p,
 span {
-    font-family: 'Noto Serif SC', KaiTi, "楷体", serif !important;
+    font-family: 'LocalKaiTi', serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -36,7 +36,7 @@ span {
     h1,
     p,
     span {
-        font-family: 'Noto Serif SC', KaiTi, "楷体", serif !important;
+        font-family: 'LocalKaiTi', serif !important;
     }
 }
 
