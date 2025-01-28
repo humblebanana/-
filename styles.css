@@ -20,8 +20,16 @@ body,
 .couplet,
 h1,
 p,
-span {
-    font-family: 'LocalKaiTi' !important;  /* 只使用我们的本地字体 */
+span,
+.scroll-hint {  /* 添加滚动提示的类名 */
+    /* 使用仿宋字体，并提供多个备选方案 */
+    font-family: FangSong,
+                "仿宋",
+                FangSong_GB2312,
+                "仿宋_GB2312",
+                "STFangsong",
+                "华文仿宋",
+                serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +43,15 @@ span {
     .couplet,
     h1,
     p,
-    span {
-        font-family: 'LocalKaiTi' !important;
+    span,
+    .scroll-hint {
+        font-family: FangSong,
+                    "仿宋",
+                    FangSong_GB2312,
+                    "仿宋_GB2312",
+                    "STFangsong",
+                    "华文仿宋",
+                    serif !important;
     }
 }
 
@@ -199,13 +214,12 @@ body {
     .blessing-item, 
     .couplet {
         /* 确保移动端字体设置相同 */
-        font-family: "Kaiti SC",
-                    "Kaiti TC",
-                    "楷体-简",
-                    KaiTi,
-                    "楷体",
-                    DFKai-SB,
-                    "华文楷体",
+        font-family: FangSong,
+                    "仿宋",
+                    FangSong_GB2312,
+                    "仿宋_GB2312",
+                    "STFangsong",
+                    "华文仿宋",
                     serif !important;
     }
     
