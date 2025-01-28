@@ -21,20 +21,30 @@ body,
 h1,
 p,
 span,
-.scroll-hint {  /* 添加滚动提示的类名 */
-    /* 使用仿宋字体，并提供多个备选方案 */
-    font-family: FangSong,
-                "仿宋",
-                FangSong_GB2312,
-                "仿宋_GB2312",
-                "STFangsong",
-                "华文仿宋",
-                serif !important;
+.scroll-hint {
+    font-family: 'Noto Serif SC', serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* 移动端特别处理 */
+/* 标题使用粗体 */
+.title {
+    font-weight: 700;
+}
+
+/* 对联使用中等粗细 */
+.couplet {
+    font-weight: 600;
+}
+
+/* 其他文字使用常规字重 */
+.subtitle,
+.blessing-item,
+.scroll-hint {
+    font-weight: 400;
+}
+
+/* 移动端特别优化 */
 @media screen and (max-width: 768px) {
     body, 
     .title, 
@@ -45,13 +55,7 @@ span,
     p,
     span,
     .scroll-hint {
-        font-family: FangSong,
-                    "仿宋",
-                    FangSong_GB2312,
-                    "仿宋_GB2312",
-                    "STFangsong",
-                    "华文仿宋",
-                    serif !important;
+        font-family: 'Noto Serif SC', serif !important;
     }
 }
 
@@ -214,13 +218,7 @@ body {
     .blessing-item, 
     .couplet {
         /* 确保移动端字体设置相同 */
-        font-family: FangSong,
-                    "仿宋",
-                    FangSong_GB2312,
-                    "仿宋_GB2312",
-                    "STFangsong",
-                    "华文仿宋",
-                    serif !important;
+        font-family: 'Noto Serif SC', serif !important;
     }
     
     .first-page .title {
