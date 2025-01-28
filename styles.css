@@ -8,22 +8,41 @@
     box-sizing: border-box;
 }
 
-/* 重新设置字体，确保移动端兼容性 */
+/* 基础字体设置 */
 body, 
 .title, 
 .subtitle, 
 .blessing-item, 
 .couplet {
-    /* 完整的字体回退序列 */
-    font-family: KaiTi, 
-                KaiTi_GB2312, /* Windows 中文系统 */
+    /* 添加微信特定的字体 */
+    font-family: 'CustomKaiTi', 
+                KaiTi, 
+                KaiTi_GB2312, 
                 '楷体', 
-                '楷体_GB2312',  /* 兼容旧系统 */
-                DFKai-SB,  /* Mac/iOS 中文系统 */
-                '标楷体',  /* Linux 中文系统 */
+                '楷体_GB2312',
+                DFKai-SB, 
+                '标楷体',
+                -apple-system-font,  /* iOS 微信 */
+                "PingFang SC",       /* iOS 微信备选 */
+                "Heiti SC",          /* iOS 微信备选 */
                 serif !important;
-    -webkit-font-smoothing: antialiased;  /* 优化字体渲染 */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* 微信浏览器特定样式 */
+@supports (-webkit-touch-callout: none) {
+    body, 
+    .title, 
+    .subtitle, 
+    .blessing-item, 
+    .couplet {
+        /* 微信浏览器特定字体设置 */
+        font-family: KaiTi, 
+                    '楷体',
+                    '楷体_GB2312',
+                    DFKai-SB !important;
+    }
 }
 
 body {
