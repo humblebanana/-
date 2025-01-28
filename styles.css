@@ -1,47 +1,47 @@
-/* 導入思源宋體（繁體版本） */
-@import url('https://fonts.googleapis.com/earlyaccess/notoserictc.css');
-
-/* 全局字体设置 */
+/* 重置基础样式 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 基础字体设置 */
-body, 
-.title, 
-.subtitle, 
-.blessing-item, 
-.couplet {
-    /* 添加微信特定的字体 */
-    font-family: 'CustomKaiTi', 
-                KaiTi, 
-                KaiTi_GB2312, 
-                '楷体', 
-                '楷体_GB2312',
-                DFKai-SB, 
-                '标楷体',
-                -apple-system-font,  /* iOS 微信 */
-                "PingFang SC",       /* iOS 微信备选 */
-                "Heiti SC",          /* iOS 微信备选 */
-                serif !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* 统一字体设置 */
+body {
+    /* 移动端优先的字体设置 */
+    font-family: "Kaiti SC", /* iOS */
+                "Kaiti TC", /* iOS 繁体 */
+                KaiTi, /* Windows */
+                "楷体-简", /* 简体变体 */
+                "楷体", 
+                DFKai-SB, /* Mac */
+                "华文楷体", /* 华文字体 */
+                serif !important; /* 后备字体 */
 }
 
-/* 微信浏览器特定样式 */
-@supports (-webkit-touch-callout: none) {
-    body, 
-    .title, 
-    .subtitle, 
-    .blessing-item, 
-    .couplet {
-        /* 微信浏览器特定字体设置 */
-        font-family: KaiTi, 
-                    '楷体',
-                    '楷体_GB2312',
-                    DFKai-SB !important;
+/* 确保所有文字元素继承字体 */
+.title,
+.subtitle,
+.blessing-item,
+.couplet,
+h1,
+p,
+span {
+    font-family: inherit !important;
+}
+
+/* 移动端特别处理 */
+@media screen and (max-width: 768px) {
+    body {
+        /* 移动端特定的字体设置 */
+        font-family: "Kaiti SC",
+                    "Kaiti TC",
+                    "楷体-简",
+                    KaiTi,
+                    "楷体",
+                    DFKai-SB,
+                    "华文楷体",
+                    serif !important;
+        -webkit-text-size-adjust: 100%; /* 防止 iOS 自动调整字体大小 */
     }
 }
 
@@ -204,12 +204,13 @@ body {
     .blessing-item, 
     .couplet {
         /* 确保移动端字体设置相同 */
-        font-family: KaiTi, 
-                    KaiTi_GB2312,
-                    '楷体', 
-                    '楷体_GB2312', 
-                    DFKai-SB, 
-                    '标楷体', 
+        font-family: "Kaiti SC",
+                    "Kaiti TC",
+                    "楷体-简",
+                    KaiTi,
+                    "楷体",
+                    DFKai-SB,
+                    "华文楷体",
                     serif !important;
     }
     
